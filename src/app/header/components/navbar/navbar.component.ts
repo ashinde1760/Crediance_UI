@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  sidebar: boolean = false;
+  user!: string;
+  logUser: boolean = false;
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
+    // this.user = JSON.stringify(localStorage.getItem('user'));
+  }
+
+  sideBar() {
+    if (this.sidebar == false) {
+      this.sidebar = true;
+    } else {
+      this.sidebar = false;
+    }
+  }
+
+
+
+
+//Page routing....
+
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/']);
+  }
+
+  onClickHome() {
+    console.log("inside home ");
+    this.router.navigate(['/home'])
+    this.sideBar();
+  }
+
+  onClicDocMngmnt() {
+    this.router.navigate(['#']);
+    this.sideBar();
+  }
+  onClickBookmarks() {
+    this.router.navigate(['#']);
+    this.sideBar();
   }
 
 }

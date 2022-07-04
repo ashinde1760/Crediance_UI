@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthModule } from './auth/auth.module';
-import { HeaderModule } from './header/header.module';
+import { AuthModule } from './Auth/auth.module';
+import { HeadersModule } from './Components/headers/headers.module';
 
 const routes: Routes = [
   {
     path:"",
     pathMatch:"full",
-    loadChildren:()=>AuthModule
+    loadChildren:()=> AuthModule
   },
   {
-    path:"header",
-    loadChildren:()=> HeaderModule
+    path:"document",
+    loadChildren:()=>HeadersModule
   }
 ];
 

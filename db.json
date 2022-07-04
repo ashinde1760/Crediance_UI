@@ -1,0 +1,19 @@
+{
+  "client": [
+    {
+      "clientName": "Anemoi Technologies pvt. ltd.",
+      "CAFCode": "AT1001",
+      "id": 1
+    },
+    {
+      "clientName": "Cyperts Technology",
+      "CAFCode": "CT1212",
+      "id": 2
+    },
+    {
+      "clientName": "PWC",
+      "CAFCode": "PWC7001",
+      "id": 3
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+<button
+  pButton
+  style="float: right"
+  class="p-button-sm pbutton"
+  label="Create Project"
+  icon="pi pi-plus"
+  (click)="onClickAdd()"
+></button>
+
+<!-- Dialog box to add client -->
+<p-dialog
+  [(visible)]="clientDialog"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '50vw', margin: '10px', position: 'static' }"
+>
+  <ng-template pTemplate="header">
+    <h2>Add Client Information</h2>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <div class="p-fluid feilds">
+      <label for="">Client Name</label><br />
+      <input
+        style="display: fluid"
+        pInputText
+        placeholder="Enter Client Name"
+        [(ngModel)]="clientData.clientName"
+      />
+    </div>
+    <div class="p-fluid feilds">
+      <label for="">CAF Code</label><br />
+      <input
+        style="display: fluid"
+        pInputText
+        placeholder="Enter CAF Code"
+        [(ngModel)]="clientData.CAFCode"
+      />
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      icon="pi pi-times"
+      label="cancle"
+      class="pbutton"
+      (click)="onClickCancle()"
+    ></button>
+    <button
+      pButton
+      icon="pi pi-save"
+      label="save"
+      class="pbutton"
+      (click)="onClickSave()"
+    ></button>
+  </ng-template>
+</p-dialog>
+
+
+<!-- Edit client Data -->
+<p-dialog
+  [(visible)]="clientEditDialog"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '50vw', margin: '10px', position: 'static' }"
+>
+  <ng-template pTemplate="header">
+    <h2>Edit Client Information</h2>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <div class="p-fluid feilds">
+      <label for="">Client Name</label><br />
+      <input
+        style="display: fluid"
+        pInputText
+        placeholder="Enter Client Name"
+        [(ngModel)]="clientEditData.clientName"
+      />
+    </div>
+    <div class="p-fluid feilds">
+      <label for="">CAF Code</label><br />
+      <input
+        style="display: fluid"
+        pInputText
+        placeholder="Enter CAF Code"
+        [(ngModel)]="clientEditData.CAFCode"
+      />
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      icon="pi pi-times"
+      label="cancle"
+      class="pbutton"
+      (click)="onClickCancle()"
+    ></button>
+    <button
+      pButton
+      icon="pi pi-save"
+      label="save"
+      class="pbutton"
+      (click)="onClickSave()"
+    ></button>
+  </ng-template>
+</p-dialog>
+
+
+<!-- Client Data -->
+
+<div style="margin-top: 50px">
+  <p-dataView
+    #dv
+    [value]="clientAllData"
+    [paginator]="true"
+    [rows]="9"
+    layout="grid"
+    styleClass="dataview"
+  >
+    <ng-template let-product pTemplate="gridItem">
+      <div class="col-12 md:col-4">
+        <div class="product-grid-item card">
+          <div class="product-grid-item-content1">
+            <div class="product-name">{{ product.CAFCode }}</div>
+            <div class="product-name">{{ product.clientName }}</div>
+            <br>
+            <a><i class="pi pi-pencil" style="float: right; cursor: pointer;" (click)="onClickEdit(product.id)"></i></a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
+</div>

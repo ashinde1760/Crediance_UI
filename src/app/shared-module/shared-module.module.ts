@@ -5,6 +5,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {DividerModule} from 'primeng/divider';
 import {ButtonModule} from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ToolbarModule} from 'primeng/toolbar';
 
 
 
@@ -17,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DividerModule,
     ButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToolbarModule
   ],
   exports:[
     CommonModule,
@@ -26,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DividerModule,
     ButtonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToolbarModule
   ]
 })
 export class SharedModuleModule { }

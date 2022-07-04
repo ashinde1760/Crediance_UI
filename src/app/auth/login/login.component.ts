@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       else{
         alert("Incorrect Crediantials....!!");
         this.project.reset();
-        this.router.navigate(['/'])
+        this.router.navigate(['/header'])
       }
   }
 }

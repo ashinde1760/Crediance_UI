@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from './components/navbar/home/home.component';
-import { SharedModuleModule } from '../shared-module/shared-module.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
+import { HomeComponent } from './navbar/home/home.component';
 
 
 
@@ -17,11 +17,11 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
     RouterModule.forChild(
       [
         {
-          path:"",
+          path:'',
           component:NavbarComponent,
           children:[
             {
-              path:"home",
+              path:'home',
               component:HomeComponent
             }
           ]
