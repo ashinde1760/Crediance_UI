@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SharedModuleModule } from 'src/app/shared-module/shared-module.module';
 import { HomeComponent } from './navbar/home/home.component';
+import { CommonModule } from '@angular/common';
 
 
 
