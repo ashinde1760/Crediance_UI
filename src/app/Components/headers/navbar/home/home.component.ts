@@ -11,7 +11,9 @@ import { Client } from './model/client';
 })
 export class HomeComponent implements OnInit {
   projectCreationDialog: boolean = false;
+  projectEditDialog:boolean=false;
   clientData!:Client;
+  clientData1!:Client;
   clientDatas:Client[]=[];
 
   value1:number=100;
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
   onClickCancle()
   {
     this.projectCreationDialog=false;
+    this.projectEditDialog=false;
   }
 
   onClickSave()
@@ -57,6 +60,29 @@ export class HomeComponent implements OnInit {
 
   onCLickEdit(id:string)
   {
-    alert("edit")
+    this.clientData1={};
+    this.service.getProjectById(id).subscribe(
+      (data:Client)=>{
+        this.clientData1=data;
+        this.projectEditDialog=true;
+      },
+      (error:HttpErrorResponse)=>{
+        alert(error);
+      }
+    )
+  }
+
+  onClickUpdate()
+  {
+    this.service.editProjectById(this.clientData1).subscribe(
+      (data:Client)=>{
+        console.log("Client data updated successfully", data);
+        this.projectEditDialog=false;
+        this.ngOnInit();
+      },
+      (error:HttpErrorResponse)=>{
+        alert(error);
+      }
+    )
   }
 }

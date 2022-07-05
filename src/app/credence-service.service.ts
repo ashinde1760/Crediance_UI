@@ -19,4 +19,44 @@ export class CredenceServiceService {
   {
     return this.http.get(`${environment.url}/client`)
   }
+
+  getProjectById(id:string)
+  {
+    return this.http.get(`${environment.url}/client/${id}`);
+  }
+
+  editProjectById(clientData:Client)
+  {
+    return this.http.put(`${environment.url}/client/${clientData.id}`,clientData)
+  }
+
+
+
+
+
+  addUser(userData:Client)
+  {
+    return this.http.post(`${environment.url}/user`,userData)
+  }
+
+  getUsers()
+  {
+    return this.http.get(`${environment.url}/user`)
+  }
+
+  getUserById(id:string)
+  {
+    return this.http.get(`${environment.url}/user/${id}`);
+  }
+
+  editUserById(userData:Client)
+  {
+    return this.http.put(`${environment.url}/user/${userData.id}`,userData)
+  }
+
+  deleteUser(id:string){
+    return this.http.delete(`${environment.url}/user/${id}`)
+  }
+
+
 }

@@ -1,0 +1,286 @@
+<div class="addUserButton">
+  <button
+    pButton
+    icon="pi pi-plus"
+    label="Upload User"
+    class="p-button-sm pButton"
+    style="margin: 0px 10px"
+    (click)="onClickUpload()"
+  ></button>
+  <button
+    pButton
+    icon="pi pi-plus"
+    label="Add User"
+    (click)="addUser()"
+    class="p-button-sm pButton"
+  ></button>
+</div>
+
+<!-- To add new user Details -->
+<p-dialog
+  [(visible)]="addUserDialog"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '40vw', margin: '0px 20px' }"
+>
+  <ng-template pTemplate="header">
+    <h2>Add New User Details</h2>
+  </ng-template>
+  <ng-template pTemplate="content" class="content">
+    <div class="p-field p-fluid">
+      <label>User Name</label><br />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="userData.userName"
+        placeholder="Enter User Name"
+      />
+    </div>
+    <div>
+      <label for=""> Role</label> <br />
+      <p-dropdown
+        class="p-field p-fluid"
+        [options]="roles"
+        [(ngModel)]="userData.role"
+        [ngModelOptions]="{ standalone: true }"
+        optionLabel="role"
+        optionValue="role"
+        placeholder="select Role"
+      ></p-dropdown>
+    </div>
+
+    <div>
+      <label for=""> Client</label> <br />
+      <p-dropdown
+        class="p-field p-fluid"
+        [options]="clients"
+        [(ngModel)]="userData.clientName"
+        [ngModelOptions]="{ standalone: true }"
+        optionLabel="clientName"
+        optionValue="clientName"
+        placeholder="select client"
+      ></p-dropdown>
+    </div>
+
+    <div class="p-field p-fluid">
+      <label>Mobile Number</label><br />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="userData.mobile"
+        placeholder="Enter Mobile Number"
+      />
+    </div>
+    <div class="p-field p-fluid">
+      <label>Email ID</label><br />
+      <input
+        type="email"
+        pInputText
+        [(ngModel)]="userData.email"
+        placeholder="Enter Client email ID"
+      />
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      icon="pi pi-save"
+      label="Save"
+      class="p-button-sm pButton"
+      (click)="onClickSave()"
+    ></button>
+    <button
+      pButton
+      icon="pi pi-times"
+      label="Cancle"
+      (click)="onClickCancle()"
+      class="p-button-sm pButton"
+    ></button>
+  </ng-template>
+</p-dialog>
+
+<!-- To edir existing user Details -->
+<p-dialog
+  [(visible)]="editUserDialog"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '40vw', margin: '0px 20px' }"
+>
+  <ng-template pTemplate="header">
+    <h2>Edit User Details</h2>
+  </ng-template>
+  <ng-template pTemplate="content" class="content">
+    <div class="p-field p-fluid">
+      <label>User Name</label><br />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="userData1.userName"
+        placeholder="Enter User Name"
+      />
+    </div>
+    <div>
+      <label for=""> Role</label> <br />
+      <p-dropdown
+        class="p-field p-fluid"
+        [options]="roles"
+        [(ngModel)]="userData1.role"
+        [ngModelOptions]="{ standalone: true }"
+        optionLabel="role"
+        optionValue="role"
+        placeholder="select Role"
+      ></p-dropdown>
+    </div>
+
+    <div>
+      <label for=""> Client</label> <br />
+      <p-dropdown
+        class="p-field p-fluid"
+        [options]="clients"
+        [(ngModel)]="userData1.clientName"
+        [ngModelOptions]="{ standalone: true }"
+        optionLabel="clientName"
+        optionValue="clientName"
+        placeholder="select client"
+      ></p-dropdown>
+    </div>
+    <div class="p-field p-fluid">
+      <label>Mobile Number</label><br />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="userData1.mobile"
+        placeholder="Enter Mobile Number"
+      />
+    </div>
+    <div class="p-field p-fluid">
+      <label>Email ID</label><br />
+      <input
+        type="email"
+        pInputText
+        [(ngModel)]="userData1.email"
+        placeholder="Enter Client email ID"
+      />
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      icon="pi pi-save"
+      label="Update"
+      class="p-button-sm pButton"
+      (click)="onClickUpdate()"
+    ></button>
+    <button
+      pButton
+      icon="pi pi-times"
+      label="Cancle"
+      (click)="onClickCancle()"
+      class="p-button-sm pButton"
+    ></button>
+  </ng-template>
+</p-dialog>
+
+<!-- To upload user Details -->
+<p-dialog
+  [(visible)]="uploadDialog"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '40vw', margin: '0px 20px' }"
+>
+  <div style="margin-top: 10px">
+    <input
+      style="width: 100%"
+      class="p-inputtext-sm"
+      type="file"
+      pInputText
+      id="dos"
+      name="file"
+      required
+      autofocus
+      (change)="selectFile($event)"
+    />
+  </div>
+  <div style="margin-top: 40px">
+    <button
+      pButton
+      pRipple
+      label="Upload"
+      icon="pi pi-upload"
+      class="p-button-sm pButton"
+      [disabled]="!selectedFiles"
+      (click)="uploadFile()"
+      style="float: right"
+    ></button>
+  </div>
+</p-dialog>
+
+<!-- To show all Users -->
+
+<div class="card" style="margin-top: 70px">
+  <p-table
+    styleClass="p-datatable-sm"
+    #dt
+    [value]="userDatas"
+    [rows]="5"
+    [paginator]="true"
+    responsiveLayout="scroll"
+    [rowHover]="true"
+    dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true"
+  >
+    <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        <h3 class="m-0">Manage Users</h3>
+        <!-- <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                </span> -->
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <!-- <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th> -->
+        <th>Name</th>
+        <th>Mobile No.</th>
+        <th>Email ID</th>
+        <th>Role</th>
+        <th>Client Name</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <!-- <td>
+                    <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                </td> -->
+        <td>{{ user.userName }}</td>
+        <td>{{ user.mobile }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.clientName }}</td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-success mr-2"
+            (click)="editUser(user.id)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-warning p-button-sm"
+            (click)="deleteUser(user.id)"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+      <div class="flex align-items-center justify-content-between">
+        In total there are {{ userDatas ? userDatas.length : 0 }} Users.
+      </div>
+    </ng-template>
+  </p-table>
+</div>

@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DocumentEditorContainerAllModule } from '@syncfusion/ej2-angular-documenteditor';
+import { UserManagementComponent } from './navbar/user-management/user-management.component';
 
 
 
@@ -15,7 +16,8 @@ import { DocumentEditorContainerAllModule } from '@syncfusion/ej2-angular-docume
 @NgModule({
   declarations: [
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    UserManagementComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,10 @@ import { DocumentEditorContainerAllModule } from '@syncfusion/ej2-angular-docume
           {
             path: 'home',
             component: HomeComponent,
+          },
+          {
+            path: 'usermng',
+            component: UserManagementComponent,
           }
         ],
       },

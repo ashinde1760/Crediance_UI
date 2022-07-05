@@ -1,0 +1,18 @@
+::ng-deep .addUserButton {
+  float: right;
+}
+
+::ng-deep .pButton {
+  background-color: #d93954;
+  border-color: white;
+  float: right;
+}
+
+.pButton:hover {
+  background-color: #d30628;
+  border-color: white;
+}
+
+::ng-deep .p-field {
+  margin: 10px 0px;
+}

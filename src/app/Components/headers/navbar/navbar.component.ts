@@ -34,8 +34,8 @@ export class NavbarComponent implements OnInit {
     this.sideBar();
   }
 
-  onClicDocMngmnt() {
-    this.router.navigate(['#']);
+  onClicUserMngmnt() {
+    this.router.navigate(['usermng']);
     this.sideBar();
   }
   onClickBookmarks() {

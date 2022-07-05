@@ -18,5 +18,15 @@
       "clientLocation": "Magarpatta, Pune",
       "id": 3
     }
+  ],
+  "user": [
+    {
+      "userName": "Shubham",
+      "role": "Admin",
+      "clientName": "Cyperts Technologies",
+      "mobile": "9089789743",
+      "email": "shubham@gmail.com",
+      "id": 3
+    }
   ]
 }
