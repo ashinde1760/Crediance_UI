@@ -1,5 +1,22 @@
 {
-  "client":[
-    
+  "client": [
+    {
+      "clientName": "Anemoi Technoogies",
+      "cafCode": "AT123",
+      "clientLocation": "Kharadi, Pune",
+      "id": 1
+    },
+    {
+      "clientName": "Cyperts Technologies",
+      "cafCode": "CT1910",
+      "clientLocation": "Kharadi",
+      "id": 2
+    },
+    {
+      "clientName": "Metamagic Global",
+      "cafCode": "MG1710",
+      "clientLocation": "Magarpatta, Pune",
+      "id": 3
+    }
   ]
 }

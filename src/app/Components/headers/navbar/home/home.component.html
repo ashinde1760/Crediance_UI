@@ -1,1 +1,114 @@
-home works..!!
+<!-- To create New Project -->
+<button
+  pButton
+  icon="pi pi-plus"
+  label="Create Project"
+  class="p-button-sm pButton"
+  (click)="onClickAddProject()"
+></button>
+
+<!-- To add New Project Details -->
+<p-dialog
+  [(visible)]="projectCreationDialog"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+  [style]="{ width: '40vw', margin: '0px 20px' }"
+>
+  <ng-template pTemplate="header">
+    <h2>Add New Client Details</h2>
+  </ng-template>
+  <ng-template pTemplate="content" class="content">
+    <div class="p-field p-fluid">
+      <label>Client Name</label><br />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="clientData.clientName"
+        placeholder="Enter Client Name"
+      />
+    </div>
+    <div class="p-field p-fluid">
+      <label>CAF Code</label><br />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="clientData.cafCode"
+        placeholder="Enter CAF Code"
+      />
+    </div>
+    <div class="p-field p-fluid">
+      <label>Client Location</label><br />
+      <input
+        type="text"
+        pInputText
+        [(ngModel)]="clientData.clientLocation"
+        placeholder="Enter Client Location"
+      />
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      icon="pi pi-save"
+      label="Save"
+      class="p-button-sm pButton"
+      (click)="onClickSave()"
+    ></button>
+    <button
+      pButton
+      icon="pi pi-times"
+      label="Cancle"
+      (click)="onClickCancle()"
+      class="p-button-sm pButton"
+    ></button>
+  </ng-template>
+</p-dialog>
+
+<!-- To view All Projects -->
+<div class="card" style="margin-top: 50px">
+  <p-dataView
+    #dv
+    [value]="clientDatas"
+    [paginator]="true"
+    [rows]="6"
+    layout="grid"
+    class="clientinfo"
+  >
+    <ng-template let-client pTemplate="gridItem">
+      <div class="col-12 md:col-4">
+        <div class="product-grid-item card">
+          <div class="product-grid-item-content">
+            <label class="product-name">CAF Code:</label>{{ client.cafCode }}
+            <br />
+            <label class="product-name">Name:</label>{{ client.clientName }}
+            <br />
+            <label class="product-name">Location:</label
+            >{{ client.clientLocation }} <br />
+            <i
+              class="pi pi-pencil"
+              style="cursor: pointer; float: right"
+              (click)="onCLickEdit(client.id)"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
+</div>
+
+<!-- Project Status -->
+<p-card>
+<div class="grid formgrid text-center" style="margin-top: 50px">
+  <div class="field col-12 md:col-4">
+    <p-knob [(ngModel)]="value1" [size]="200"></p-knob>
+    <h3>Basic</h3>
+  </div>
+  <div class="field col-12 md:col-4">
+    <p-knob [(ngModel)]="value2" [size]="200"></p-knob>
+    <h3>Readonly</h3>
+  </div>
+  <div class="field col-12 md:col-4">
+    <p-knob [(ngModel)]="value3" [size]="200"></p-knob>
+    <h3>Disabled</h3>
+  </div>
+</div>
+</p-card>

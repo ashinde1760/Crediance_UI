@@ -21,6 +21,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ToastModule} from 'primeng/toast';
 import {EditorModule} from 'primeng/editor';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {DataViewModule} from 'primeng/dataview';
+import {KnobModule} from 'primeng/knob';
 
 
 
@@ -49,7 +51,9 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     ConfirmDialogModule,
     ToastModule,
     EditorModule,
-    InputTextareaModule
+    InputTextareaModule,
+    DataViewModule,
+    KnobModule
   ],
   exports:[
     CommonModule,
@@ -73,7 +77,9 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     ConfirmDialogModule,
     ToastModule,
     EditorModule,
-    InputTextareaModule
+    InputTextareaModule,
+    DataViewModule,
+    KnobModule
   ]
 })
 export class SharedModulesModule { }
