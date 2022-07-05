@@ -1,0 +1,54 @@
+::ng-deep .highlighted-text{
+    background-color: yellow;
+  }
+
+  ::ng-deep .dataCard{
+    margin: 10px;
+    background-color: #dedede;
+}
+
+::ng-deep .docTitle{
+    display: inline-block;
+    /* flex-wrap: wrap; */
+}
+
+
+::ng-deep .contentCard{
+  display: block;
+  margin: 5px;
+  color: #dedede;
+  cursor: pointer;
+}
+
+
+::ng-deep .seachButton{
+  background-color: #d93954;
+  border-color: white;
+}
+
+.seachButton:hover{
+  background-color: #d30628;
+border-color: white;
+}
+
+.inputSearch{
+  width: 100%;
+}
+a{
+  text-decoration: underline;
+  color: blue;
+}
+
+i{
+  float: right;
+  margin: 10px;
+  color: #d93954;
+  cursor: pointer;
+}
+
+pre{
+  word-wrap: break-word;
+  inline-size: 100%; 
+  overflow: scroll;
+  font-family:Georgia;
+}

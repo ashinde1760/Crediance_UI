@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       if(this.data.username==="Akshay" && this.data.password==="Akshay@123")
       {
         localStorage.setItem('user',this.data.username);
-        this.router.navigate(["/header"]);
+        this.router.navigate(["/home"]);
       }
       else{
         alert("Incorrect Crediantials....!!");
@@ -37,3 +37,6 @@ export class LoginComponent implements OnInit {
       }
   }
 }
+
+
+
