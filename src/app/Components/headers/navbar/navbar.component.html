@@ -1,5 +1,5 @@
-<!-- <div class="container">
-  <p-toolbar
+<div class="container">
+  <!-- <p-toolbar
     style="width: 100%"
     styleClass="toolbar"
    >
@@ -21,58 +21,64 @@
 
 
     <h1 style="text-align: center; justify-content: center;" class="title1">
-      Digital Accounting Manual System
+      CREDENCE
     </h1>
     <div class="p-toolbar-group-right userInfo">
       <span style="font-size: larger; font-family: Georgia;">Welcome {{user}}</span>
       <img src="assets\Images\user.png" alt="profile" />
     </div>
   </p-toolbar> -->
-
-
-  <p-toolbar styleClass="toolbar">
-    <div class="p-toolbar-group-left">
-      <i
-        class="pi pi-bars"
-        style="
-          float: left;
-          padding: 1rem;
-          font-size: 2rem;
-          cursor: pointer;
-        "
-        (click)="sideBar()"
-      ></i>
-      <img style="width: 100px;" src="assets\Images\outline_logo2.png" alt="Logo">
+  <div class="cardData" style="width: 100%">
+    <div class="flex card-container">
+      <div class="flex-none flex justify-content-center m-2 px-1">
+        <i
+          class="pi pi-bars"
+          style="float: left; padding: 1rem; font-size: 2rem; cursor: pointer"
+          (click)="sideBar()"
+        ></i>
+        <img
+          style="width: 80px"
+          src="assets\Images\outline_logo2.png"
+          alt="Logo"
+        />
+      </div>
+      <div
+        class="flex-grow-1 flex align-items-center justify-content-center m-2"
+      >
+        <span class="title1">CREDENCE</span>
+      </div>
+      <div
+        class="flex-none flex align-items-center justify-content-center m-2 px-3"
+      >
+        <span class="userData" style="font-size: larger; font-family: Georgia"
+          >Welcome {{ user }}</span
+        >
+        <img src="assets\Images\user.png" alt="profile" />
+      </div>
     </div>
-    
-    <div class="title1">
-      CREDENCE
-    </div>
-
-  <div class="p-toolbar-group-right userInfo">
-    <span style="font-size: larger; font-family: Georgia;">Welcome {{user}} &nbsp; <img src="assets\Images\user.png" alt="profile" /></span>
-    
   </div>
-  </p-toolbar>
 
 
-  
+
+
+<!-- Left Panel -->
+
   <div class="leftpanel">
     <div *ngIf="sidebar" class="nav-pane">
-      <div >
+      <div>
         <ul class="listItem">
-          <li class="item" (click)="onClickHome()" >
+          <li class="item" (click)="onClickHome()">
             <i class="pi pi-home"></i> <a> Home</a>
           </li>
           <li class="item" (click)="onClicUserMngmnt()">
-            <i class="pi pi-book"></i
-            ><a> User Management</a>
+            <i class="pi pi-book"></i><a> User Management</a>
           </li>
           <li class="item" (click)="onClickBookmarks()">
-            <i class="pi pi-book"></i
-            ><a> Master Data Management</a>
+            <i class="pi pi-book"></i><a> Master Data Management</a>
           </li>
-          <li class="item" (click)="logout()"><i class="pi pi-sign-out"></i><a> Logout</a></li>
+          <li class="item" (click)="logout()">
+            <i class="pi pi-sign-out"></i><a> Logout</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -80,6 +86,5 @@
     <div class="pages">
       <router-outlet></router-outlet>
     </div>
-
-
   </div>
+</div>

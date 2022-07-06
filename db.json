@@ -9,7 +9,7 @@
     {
       "clientName": "Cyperts Technologies",
       "cafCode": "CT1910",
-      "clientLocation": "Kharadi",
+      "clientLocation": "Kharadi, Pune",
       "id": 2
     },
     {
@@ -21,12 +21,20 @@
   ],
   "user": [
     {
-      "userName": "Shubham",
+      "userName": "Akshay",
       "role": "Admin",
-      "clientName": "Cyperts Technologies",
-      "mobile": "9089789743",
-      "email": "shubham@gmail.com",
-      "id": 3
+      "clientName": "Anemoi Technoogies",
+      "mobile": "9767897601",
+      "email": "ashinde1760@gmail.com",
+      "id": 4
+    },
+    {
+      "userName": "Shivraj",
+      "role": "Super Admin",
+      "clientName": "Metamagic Global",
+      "mobile": "9067896756",
+      "email": "shivraj@gmail.com",
+      "id": 5
     }
   ]
 }

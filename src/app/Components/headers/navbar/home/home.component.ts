@@ -3,11 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CredenceServiceService } from 'src/app/credence-service.service';
 import { Client } from './model/client';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
+  providers: [ConfirmationService, MessageService]
+
 })
 export class HomeComponent implements OnInit {
   projectCreationDialog: boolean = false;
@@ -20,7 +23,7 @@ export class HomeComponent implements OnInit {
   value2:number=70;
   value3:number=30;
 
-  constructor(private router: Router, private service:CredenceServiceService) {}
+  constructor(private router: Router, private service:CredenceServiceService,private messageService: MessageService,private confirmationService: ConfirmationService) {}
 
   ngOnInit(): void {
     this.service.getProjects().subscribe(
@@ -74,15 +77,36 @@ export class HomeComponent implements OnInit {
 
   onClickUpdate()
   {
-    this.service.editProjectById(this.clientData1).subscribe(
-      (data:Client)=>{
-        console.log("Client data updated successfully", data);
-        this.projectEditDialog=false;
-        this.ngOnInit();
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to perform this action?',
+      accept: () => {
+        this.service.editProjectById(this.clientData1).subscribe(
+          (data:Client)=>{
+            this.projectEditDialog=false;
+            this.messageService.add({
+              severity: 'success',
+              summary: 'successs',
+              detail: 'Client Updated Suucessfully',
+            });
+            this.ngOnInit();
+          },
+          (error:HttpErrorResponse)=>{
+            this.messageService.add({
+              severity: 'cancel',
+              summary: 'error',
+              detail: `${error}`,
+            });
+          }
+        )
       },
-      (error:HttpErrorResponse)=>{
-        alert(error);
+      reject:()=>{
+        this.messageService.add({
+          severity: 'warn',
+          summary: 'Cancelled',
+          detail: 'Client not Edited',
+        });
       }
-    )
+  });
+   
   }
 }
