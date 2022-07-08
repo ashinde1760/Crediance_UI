@@ -1,0 +1,37 @@
+::ng-deep .clientDropdown{
+    width: 100%;
+}
+
+::ng-deep .fileUploadSection{
+    margin-top: 20px;
+    width: 100%;
+}
+
+::ng-deep .uploadButton{
+    margin: 10px;
+}
+
+::ng-deep .upload{
+    margin: 20px;
+    height: 30vh;
+}
+
+::ng-deep .upload1{
+    margin-bottom: 30px;
+}
+
+::ng-deep .pButton1{
+    margin: 20px 0px;
+}
+
+::ng-deep .fileLabel{
+    font-weight: 700;
+    margin: 0px 0px;
+}
+
+
+::ng-deep a{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}

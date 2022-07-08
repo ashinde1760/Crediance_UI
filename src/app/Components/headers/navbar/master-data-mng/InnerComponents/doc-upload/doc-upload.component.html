@@ -1,0 +1,118 @@
+<!--  -->
+<div  class="grid">
+    <div class="col-6">
+    
+      <div class="fileUploadSection">
+        <p-card styleClass="upload">
+          <div>
+            <label class="fileLabel">Upload Tracking Sheet: &nbsp;</label> <br />
+            <input
+              class="p-inputtext-sm"
+              type="file"
+              pInputText
+              id="dos"
+              name="file"
+              required
+              autofocus
+              (change)="selectTrackingSheet($event)"
+            />
+          </div>
+          <div>
+            <button
+              pButton
+              pRipple
+              label="Upload"
+              icon="pi pi-upload"
+              class="p-button-sm pButton pButton1"
+              (click)="uploadFile()"
+              style="float: right"
+            ></button>
+          </div>
+        </p-card>
+  
+        <p-card styleClass="upload">
+          <div>
+            <label class="fileLabel">Upload Offer Letter: &nbsp;</label> <br />
+            <input
+              class="p-inputtext-sm"
+              type="file"
+              pInputText
+              id="dos"
+              name="file"
+              required
+              autofocus
+              (change)="selectOfferLetter($event)"
+            />
+          </div>
+          <div>
+            <button
+              pButton
+              pRipple
+              label="Upload"
+              icon="pi pi-upload"
+              class="p-button-sm pButton pButton1"
+              (click)="uploadFile()"
+              style="float: right"
+            ></button>
+          </div>
+        </p-card>
+  
+        <p-card styleClass="upload">
+          <div>
+            <label class="fileLabel">Upload Bank Statement: &nbsp;</label> <br />
+            <input
+              class="p-inputtext-sm"
+              type="file"
+              pInputText
+              id="dos"
+              name="file"
+              required
+              autofocus
+              (change)="selectBankStatement($event)"
+            />
+          </div>
+          <div>
+            <button
+              pButton
+              pRipple
+              label="Upload"
+              icon="pi pi-upload"
+              class="p-button-sm pButton pButton1"
+              (click)="uploadFile()"
+              style="float: right"
+            ></button>
+          </div>
+        </p-card>
+  
+        <p-card styleClass="upload">
+          <div>
+            <label class="fileLabel">Upload Salary Slip: &nbsp;</label> <br />
+            <input
+              class="p-inputtext-sm"
+              type="file"
+              pInputText
+              id="dos"
+              name="file"
+              required
+              autofocus
+              (change)="selectSalarySlip($event)"
+            />
+          </div>
+          <div>
+            <button
+              pButton
+              pRipple
+              label="Upload"
+              icon="pi pi-upload"
+              class="p-button-sm pButton pButton1"
+              (click)="uploadFile()"
+              style="float: right"
+            ></button>
+          </div>
+        </p-card>
+      </div>
+    </div>
+    <div class="col-8">
+      
+    </div>
+  

@@ -9,6 +9,12 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DocumentEditorContainerAllModule } from '@syncfusion/ej2-angular-documenteditor';
 import { UserManagementComponent } from './navbar/user-management/user-management.component';
+import { MasterDataMngComponent } from './navbar/master-data-mng/master-data-mng.component';
+import { DocUploadComponent } from './navbar/master-data-mng/InnerComponents/doc-upload/doc-upload.component';
+import { ViewTrackingSheetComponent } from './navbar/master-data-mng/InnerComponents/view-tracking-sheet/view-tracking-sheet.component';
+import { ViewOfferLetterComponent } from './navbar/master-data-mng/InnerComponents/view-offer-letter/view-offer-letter.component';
+import { ViewBankStatementComponent } from './navbar/master-data-mng/InnerComponents/view-bank-statement/view-bank-statement.component';
+import { ViewSalarySlipComponent } from './navbar/master-data-mng/InnerComponents/view-salary-slip/view-salary-slip.component';
 
 
 
@@ -17,7 +23,13 @@ import { UserManagementComponent } from './navbar/user-management/user-managemen
   declarations: [
     NavbarComponent,
     HomeComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    MasterDataMngComponent,
+    DocUploadComponent,
+    ViewTrackingSheetComponent,
+    ViewOfferLetterComponent,
+    ViewBankStatementComponent,
+    ViewSalarySlipComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +49,34 @@ import { UserManagementComponent } from './navbar/user-management/user-managemen
           {
             path: 'usermng',
             component: UserManagementComponent,
-          }
+          },
+          {
+            path:'mastermng',
+            component:MasterDataMngComponent,
+            children:[
+              {
+                path:'uploadDocument',
+                component:DocUploadComponent
+              },
+              {
+                path:'viewTS',
+                component:ViewTrackingSheetComponent
+              },
+              {
+                path:'viewOL',
+                component:ViewOfferLetterComponent
+              },
+              {
+                path:'viewBS',
+                component:ViewBankStatementComponent
+              },
+              {
+                path:'viewSS',
+                component:ViewSalarySlipComponent
+              }
+            ]
+          },
+          
         ],
       },
     ]),

@@ -1,21 +1,21 @@
 {
   "client": [
     {
-      "clientName": "Anemoi Technoogies",
-      "cafCode": "AT123",
-      "clientLocation": "Kharadi, Pune",
+      "clientName": "Khirod Kumar Pattanayak",
+      "cafCode": "KP1717",
+      "clientLocation": "Odisa",
       "id": 1
     },
     {
-      "clientName": "Cyperts Technologies",
-      "cafCode": "CT1910",
-      "clientLocation": "Kharadi, Pune",
+      "clientName": "Shrukrishna Kure",
+      "cafCode": "SK1212",
+      "clientLocation": "Beed",
       "id": 2
     },
     {
-      "clientName": "Metamagic Global",
-      "cafCode": "MG1710",
-      "clientLocation": "Magarpatta, Pune",
+      "clientName": "Tasdiq Shaikh",
+      "cafCode": "TS1564",
+      "clientLocation": "Mumbai",
       "id": 3
     }
   ],

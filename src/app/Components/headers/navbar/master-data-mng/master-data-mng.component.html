@@ -1,0 +1,35 @@
+<p-toolbar>
+  <div style="float: left">
+    <a>Reset</a> &nbsp;&nbsp; <a>Validate</a> &nbsp;&nbsp;
+    <a>Next Step</a> &nbsp;&nbsp;
+  </div>
+</p-toolbar>
+<br />
+<br />
+<p-steps [model]="items"></p-steps>
+
+<br /><br />
+
+<div style="margin-bottom: 20px">
+  <label for="">Select Client:</label> <br />
+  <p-dropdown
+    [options]="projects"
+    [(ngModel)]="selectedProject"
+    [ngModelOptions]="{ standalone: true }"
+    optionLabel="clientName"
+    optionValue="clientName"
+    placeholder="select Client"
+    class="clientDropdown"
+    (onChange)="selectedClient()"
+  ></p-dropdown>
+</div>
+<hr />
+
+
+<!-- Doc Upload Section -->
+<div *ngIf="docUploadSection">
+  <p-tabMenu [model]="items1" [activeItem]="items1[0]"> </p-tabMenu>
+  <router-outlet></router-outlet>
+</div>
+<br />
+<br />

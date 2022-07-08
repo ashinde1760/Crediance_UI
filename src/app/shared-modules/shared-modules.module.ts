@@ -23,6 +23,9 @@ import {EditorModule} from 'primeng/editor';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {DataViewModule} from 'primeng/dataview';
 import {KnobModule} from 'primeng/knob';
+import {StepsModule} from 'primeng/steps';
+import {TabMenuModule} from 'primeng/tabmenu';
+
 
 
 
@@ -53,7 +56,9 @@ import {KnobModule} from 'primeng/knob';
     EditorModule,
     InputTextareaModule,
     DataViewModule,
-    KnobModule
+    KnobModule,
+    StepsModule,
+    TabMenuModule
   ],
   exports:[
     CommonModule,
@@ -79,7 +84,9 @@ import {KnobModule} from 'primeng/knob';
     EditorModule,
     InputTextareaModule,
     DataViewModule,
-    KnobModule
+    KnobModule,
+    StepsModule,
+    TabMenuModule
   ]
 })
 export class SharedModulesModule { }

@@ -35,11 +35,11 @@ export class NavbarComponent implements OnInit {
   }
 
   onClicUserMngmnt() {
-    this.router.navigate(['usermng']);
+    this.router.navigate(['/usermng']);
     this.sideBar();
   }
-  onClickBookmarks() {
-    this.router.navigate(['#']);
+  onClickMasterDataMng() {
+    this.router.navigate(['/mastermng']);
     this.sideBar();
   }
 }
