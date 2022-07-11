@@ -1,9 +1,12 @@
 <p-toolbar>
   <div style="float: left">
-    <a>Reset</a> &nbsp;&nbsp; <a>Validate</a> &nbsp;&nbsp;
+    <a>Reset</a> &nbsp;&nbsp; 
+    <a>Validate</a> &nbsp;&nbsp;
     <a>Next Step</a> &nbsp;&nbsp;
   </div>
 </p-toolbar>
+
+
 <br />
 <br />
 <p-steps [model]="items"></p-steps>
@@ -25,11 +28,41 @@
 </div>
 <hr />
 
-
 <!-- Doc Upload Section -->
 <div *ngIf="docUploadSection">
   <p-tabMenu [model]="items1" [activeItem]="items1[0]"> </p-tabMenu>
-  <router-outlet></router-outlet>
+  <div class="grid">
+    <div class="col-6">
+        <br>
+      <router-outlet></router-outlet>
+    </div>
+    
+    <div class="col-6">
+        <br>
+        <p-table [value]="parameters" [value]="parameters1" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+            
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Diamension Parameter</th>
+                    <th>Tracking Sheet</th>
+                    <th>Offer Letter</th>
+                    <th>Bank Statement</th>
+                    <th>Salary Slip</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-p let-p1>
+                <tr>
+                    <td>{{p.parameter}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </ng-template>
+            
+        </p-table>
+    </div>
+  </div>
 </div>
 <br />
 <br />

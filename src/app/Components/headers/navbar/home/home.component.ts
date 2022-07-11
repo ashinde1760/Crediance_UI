@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CredenceServiceService } from 'src/app/credence-service.service';
 import { Client } from './model/client';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,8 @@ export class HomeComponent implements OnInit {
   value2:number=70;
   value3:number=30;
 
+  clientForm!: FormGroup;
+
   constructor(private router: Router, private service:CredenceServiceService,private messageService: MessageService,private confirmationService: ConfirmationService) {}
 
   ngOnInit(): void {
@@ -34,6 +37,13 @@ export class HomeComponent implements OnInit {
         alert(error);
       }
     )
+
+
+    this.clientForm=new FormGroup({
+      clientName:new FormControl('',Validators.required),
+      cafCode:new FormControl('',Validators.required),
+      clientLocation:new FormControl('',Validators.required)
+    });
   }
 
   onClickAddProject() {
@@ -49,7 +59,7 @@ export class HomeComponent implements OnInit {
 
   onClickSave()
   {
-    this.service.addProject(this.clientData).subscribe(
+    this.service.addProject(this.clientForm.value).subscribe(
       (data:Client)=>{
         console.log(data);
         this.projectCreationDialog=false;

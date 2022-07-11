@@ -6,15 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./doc-upload.component.css']
 })
 export class DocUploadComponent implements OnInit {
+  selectedTrackingSheet?: FileList;
+  selectedOfferLetter?: FileList;
+  selectedBankStatement?: FileList;
+  selectedSalarySlip?: FileList;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  selectTrackingSheet(event: any) {}
-  selectOfferLetter(event: any) {}
-  selectBankStatement(event: any) {}
-  selectSalarySlip(event: any) {}
+  selectTrackingSheet(event: any) {
+    this.selectedTrackingSheet = event.target.files;
+  }
+  selectOfferLetter(event: any) {
+    this.selectedOfferLetter = event.target.files;
+  }
+  selectBankStatement(event: any) {
+    this.selectedBankStatement = event.target.files;
+  }
+  selectSalarySlip(event: any) {
+    this.selectedSalarySlip = event.target.files;
+  }
 
   uploadFile() {}
 }

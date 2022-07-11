@@ -4,6 +4,7 @@ import { CredenceServiceService } from 'src/app/credence-service.service';
 import { Clients, Role, User } from './model/user';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -24,7 +25,10 @@ export class UserManagementComponent implements OnInit {
   clients:Clients[]=[];
   roles:Role[]=[];
   selectedFiles?: FileList;
+  selectedRole!:string;
+  selectedClientName!:string;
 
+  userForm!:FormGroup;
 
   constructor(private service:CredenceServiceService,private messageService: MessageService,private confirmationService: ConfirmationService) { 
     this.roles=[
@@ -53,6 +57,20 @@ export class UserManagementComponent implements OnInit {
         alert(error);
       }
     )
+
+    this.userForm=new FormGroup({
+      userName:new FormControl('',Validators.required),
+      mobile:new FormControl('',Validators.required),
+      email:new FormControl('',Validators.required),
+      role:new FormControl(''),
+      clientName:new FormControl(''),
+    });
+
+  }
+
+  print(){
+    console.log(this.selectedRole +" "+ this.selectedClientName);
+    
   }
 
   addUser(){
@@ -67,7 +85,9 @@ export class UserManagementComponent implements OnInit {
   }
 
   onClickSave(){
-    this.service.addUser(this.userData).subscribe(
+    this.userForm.value.role=this.selectedRole;
+    this.userForm.value.clientName=this.selectedClientName;
+    this.service.addUser(this.userForm.value).subscribe(
       (data:User)=>{
         console.log("user added successfully");
         this.addUserDialog=false;
